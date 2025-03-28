@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NeonRide - Cyberpunk Cab Booking</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <style>
+        body {
+            font-family: 'Orbitron', sans-serif;
+            background-color: #0a0a1f;
+            color: #00ff9d;
+        }
+        .neon-border {
+            box-shadow: 0 0 10px #00ff9d, 0 0 20px #00ff9d, 0 0 30px #00ff9d;
+        }
+        .map-container {
+            background: linear-gradient(45deg, #0a0a1f 25%, #1a1a3f 25%, #1a1a3f 50%, #0a0a1f 50%, #0a0a1f 75%, #1a1a3f 75%);
+            background-size: 20px 20px;
+        }
+        .cyberpunk-btn {
+            background: linear-gradient(90deg, #ff00ff, #00ff9d);
+            transition: all 0.3s ease;
+        }
+        .cyberpunk-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px #00ff9d;
+        }
+    </style>
+</head>
+<body>
+    <div class="min-h-screen p-4">
+        <!-- Header -->
+        <header class="flex justify-between items-center mb-8 neon-border p-4 rounded-lg">
+            <h1 class="text-3xl font-bold">NeonRide</h1>
+            <nav>
+                <button class="px-4 py-2 rounded cyberpunk-btn mr-2">Login</button>
+                <button class="px-4 py-2 rounded cyberpunk-btn">Register</button>
+            </nav>
+        </header>
+
+        <!-- Main Content -->
+        <div class="grid md:grid-cols-2 gap-8">
+            <!-- Booking Form -->
+            <div class="neon-border p-6 rounded-lg">
+                <h2 class="text-2xl mb-6">Book Your Ride</h2>
+                <form id="bookingForm" class="space-y-4">
+                    <div>
+                        <label class="block mb-2">Pickup Location</label>
+                        <input type="text" class="w-full p-2 rounded bg-gray-900 text-cyan-400 border border-cyan-400" placeholder="Enter pickup location">
+                    </div>
+                    <div>
+                        <label class="block mb-2">Drop Location</label>
+                        <input type="text" class="w-full p-2 rounded bg-gray-900 text-cyan-400 border border-cyan-400" placeholder="Enter destination">
+                    </div>
+                    <div>
+                        <label class="block mb-2">Vehicle Type</label>
+                        <select class="w-full p-2 rounded bg-gray-900 text-cyan-400 border border-cyan-400">
+                            <option>Standard Neo-Cab</option>
+                            <option>Luxury Hover-Car</option>
+                            <option>Cyber-Van</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="w-full py-3 rounded cyberpunk-btn text-black font-bold">
+                        Find Drivers
+                    </button>
+                </form>
+            </div>
+
+            <!-- Map View -->
+            <div class="map-container neon-border rounded-lg h-[400px]">
+                <div class="h-full flex items-center justify-center">
+                    <span class="text-xl">Interactive Map View</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Available Drivers Section -->
+        <div class="mt-8 neon-border p-6 rounded-lg">
+            <h2 class="text-2xl mb-6">Available Drivers</h2>
+            <div class="grid md:grid-cols-3 gap-4">
+                <!-- Driver Cards -->
+                <div class="bg-gray-900 p-4 rounded-lg border border-cyan-400">
+                    <div class="flex items-center mb-4">
+                        <i class="bi bi-person-circle text-4xl mr-4"></i>
+                        <div>
+                            <h3 class="font-bold">Neo Driver #1</h3>
+                            <div class="flex text-yellow-400">
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-fill"></i>
+                                <i class="bi bi-star-half"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-sm mb-2">Vehicle: Cyber-X Model 3</p>
+                    <button class="w-full py-2 rounded cyberpunk-btn text-black">Select</button>
+                </div>
+                <!-- More driver cards can be added here -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('bookingForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            // Booking logic would go here
+            alert('Searching for nearby drivers...');
+        });
+    </script>
+<script>document.body.addEventListener('wheel', e => { if (!e.ctrlKey) return; e.preventDefault(); return }, { passive: false })</script>
+	</body>
+</html>
